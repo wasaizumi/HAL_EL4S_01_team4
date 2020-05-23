@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Titel.unity
     guid: 0dc2eafbbf1ec404e8db5daf7acda754
+  - enabled: 1
+    path: Assets/Scenes/AraiWork/AraiScene.unity
+    guid: 4fea180e38421684ca1dee8a25b47df6
   m_configObjects: {}

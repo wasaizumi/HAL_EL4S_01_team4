@@ -6,11 +6,13 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] GameObject instruct = null;
 
+    [SerializeField] GameObject Character = null;
+
     private bool isMove;
 
     private int isRight;
 
-    private bool a;
+    private bool isF;
 
     // Start is called before the first frame update
     void Start()
@@ -24,20 +26,7 @@ public class PlayerMove : MonoBehaviour
         if (instruct.GetComponent<Instruction>().IsPush)
         {
             isMove = true;
-
-            isRight = (int)Random.value;
-            isRight %= 1;
-
-            //たにさんが間に合わなかったよう
-            if(isRight == 0)
-            {
-                a = true;
-            }
-            else
-            {
-                a = false;
-            }
-
+            isF = Character.GetComponent<Character>().IsFollow();
         }
 
         Vector3 speed = new Vector3(0.1f, 0.0f, 0.0f);
@@ -45,12 +34,31 @@ public class PlayerMove : MonoBehaviour
         {
             if (instruct.GetComponent<Instruction>().PushLeftIsEnable)
             {
-                transform.position -= speed;
-            }
+                if (isF)
+                {
+                    transform.position -= speed;
+                    return;
+                }
 
+                else
+                {
+                    transform.position += speed;
+                    return;
+                }
+            }
             else
             {
-                transform.position += speed;
+
+                if (isF)
+                {
+                    transform.position += speed;
+                    return;
+                }
+                else
+                {
+                    transform.position -= speed;
+                    return;
+                }
             }
         }
     }
