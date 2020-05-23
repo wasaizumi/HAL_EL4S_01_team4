@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Instruction : MonoBehaviour
 {
-
-
     /// <summary>
     /// 左を押されたらtrue違ったらfalse
     /// </summary>
